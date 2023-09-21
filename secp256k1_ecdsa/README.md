@@ -1,0 +1,5 @@
+# The Weierstrass Elliptic Curve Digital Signature Algorithm (ECDSA)
+
+This digital signature algorithm is the one implemented in [Bitcoin](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). Note that this is different from the EdDSA, which is a digital signature algorithm that is used in Edwards curves. Overall, the performance is good, as is with most industry signature algorithms, but the existence of relatively securer curves like ed25519 and [fast implementations of said curves](https://dalek.rs/), combined with the ability to write other, faster signatures, like Schnorr signatures, makes this signature algorithm cool, but somewhat deprecated. 
+
+This implementation still uses the secp256k1 curve because, frankly, the NIST curves are questionably secure. Like there is a nontrivial chance that NIST's random seed to generate the SHA1 hashes for the curves were not random. Politics aside, the secp256k1 curve is also just a legendary curve, so I believe that I have to include it as the first curve to implement an ECDSA.

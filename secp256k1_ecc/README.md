@@ -1,0 +1,9 @@
+# The Secp256k1 Elliptic Curve
+
+This is the curve responsible for the security of [Bitcoin](https://bitcoin.org/bitcoin.pdf), so it's defintiely a pretty legendary method of encryption. Secp256k1 is of the [Weierstrass form](https://en.wikipedia.org/wiki/Weierstrass_elliptic_function), and thus has a solution function in the form Y^2 = X^3 + AX + B. The secp256k1 curve has a function y^2 = x^3 + 7. Note that even though the secp256k1 curve can also accomodate algorithms such as [Schnorr signatures](https://en.wikipedia.org/wiki/Schnorr_signature), I chose to only implement the encryption scheme in this workspace and have a separate workspace in this repository for Schnorr signatures and the ECDSA relating to secp256k1. For more elliptic curve cryptography, I have the Montgomery curve, ed25519, and plan on implementing ed448-Goldilocks fully in an entirely separate repository.
+
+It is worth noting that encrypting data with ECC is somewhat unimportant. It is quite difficult to find a use for the data encrypted, since the data encrypted must be a point on the elliptic curve (in this case, secp256k1). This is why we see lots of use in the diffie-hellman key exchanges and the ECDSA/Schnorr signature algorithms because they provide utility to the greater program. For sending messages, it may be best to stick to Elgamal.
+
+# Elliptic Curve Cryptograhy 
+
+The elliptic curve discrete log problem (ECDLP) is actually more difficult to crack than the normal discrete logarithm. This is because, at the moment, the best algorithm we have to crack elliptic curves is run in exponential time. The DLP is the difficulty of reverse engineering n from a known A and G in the equation A = nG (mod p). This is exceedingly difficult because elliptic curve mutiplication is very difficult for a computer to do, especially when given very large values for n.

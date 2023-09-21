@@ -1,0 +1,6 @@
+# EdDSA/ed25519
+
+The Edwards Digital Signature Algorithm is the modern day digital signature algorithm for the Edwards25519 twisted curve. This curve is birationally equivalent to the Montgomery curve, Curve25519, meaning that points on Curve25519 can be mapped to the twisted analogue and vise versa. Furthermore, edwards curves have a property to be represented in projective coordinates in order to make field arithmetic much faster than their affine counterparts. This implementation also implements a lookup table for curve25519 in order to greatly reduce needed point additions for NAF calculations (namely, reducing point additions from 256 to just 32). Obviously, this curve can be optimised much more, and I hope to continue building to it as time goes on.
+
+The first edition will contain a wNAF lookup table and point optimizations through projective coordinates. Unfortunately, these additions are not the quickest, as they assume no properties on the projective coordinates. The projective coordinate addition, doubling, and multiplication formulas can be found here: https://www.hyperelliptic.org/EFD/g1p/auto-edwards-projective.html | https://www.hyperelliptic.org/EFD/g1p/auto-twisted-projective.html
+
